@@ -234,7 +234,7 @@ const ImageGallerySection = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.7 }}
-              src="/hero2.webp"
+              src="https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto/v1779139508/hero2_sdquhn.png"
               alt="Scuba Diving"
               loading="lazy"
               decoding="async"
@@ -251,7 +251,7 @@ const ImageGallerySection = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.7 }}
-              src="/hero1.webp"
+              src="https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto/v1779139509/hero1_kvhccf.png"
               alt="Sunset Beach Andaman"
               loading="lazy"
               decoding="async"
@@ -269,7 +269,7 @@ const ImageGallerySection = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.7 }}
-              src="/hero3.webp"
+              src="https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto/v1779139515/hero3_ihu2dr.png"
               alt="Water Villas"
               loading="lazy"
               decoding="async"
@@ -406,10 +406,10 @@ const CategorySliderSection = () => {
   const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
   const slides = [
-    { title: "PACKAGES", img: "/3.webp", link: null },
-    { title: "ACTIVITIES", img: "/2.webp", link: "/scuba-diving" },
-    { title: "CABS", img: "/1.webp", link: "/cabs" },
-    { title: "FERRYS", img: "/4.webp", link: "/ferries" }
+    { title: "PACKAGES", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto/v1779138973/3_tej88o.png", link: null },
+    { title: "ACTIVITIES", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto/v1779138965/2_lpwrl0.png", link: "/scuba-diving" },
+    { title: "CABS", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto/v1779138960/1_gb5af9.png", link: "/cabs" },
+    { title: "FERRYS", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto/v1779138982/4_tsvwux.png", link: "/ferries" }
   ];
 
   const handleNext = () => setActiveIndex((prev) => (prev + 1) % slides.length);
