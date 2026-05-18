@@ -21,9 +21,9 @@ const activitiesData = [
         whyImg: 'https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&q=80&w=800',
         whyQuote: '"One of the best diving destinations in South Asia."',
         places: [
-            { name: 'Havelock Island', subtitle: 'The Scuba Diving Capital', desc: "Home to world-class sites like Nemo Reef, Dixon's Pinnacle, and Jackson's Bar. Perfect for both beginners and pros.", img: '/hero1.png' },
-            { name: 'Neil Island', subtitle: 'Pristine & Quiet', desc: 'Known for being quieter and less explored, offering pristine untouched reefs and deeper, thrilling boat dive sites.', img: '/hero3.png' },
-            { name: 'Port Blair', subtitle: 'Convenient & Accessible', desc: 'A great option for those with limited time in the islands, offering several nearby vibrant reef sites like North Bay.', img: '/hero2.png' }
+            { name: 'Havelock Island', subtitle: 'The Scuba Diving Capital', desc: "Home to world-class sites like Nemo Reef, Dixon's Pinnacle, and Jackson's Bar. Perfect for both beginners and pros.", img: '/hero1.webp' },
+            { name: 'Neil Island', subtitle: 'Pristine & Quiet', desc: 'Known for being quieter and less explored, offering pristine untouched reefs and deeper, thrilling boat dive sites.', img: '/hero3.webp' },
+            { name: 'Port Blair', subtitle: 'Convenient & Accessible', desc: 'A great option for those with limited time in the islands, offering several nearby vibrant reef sites like North Bay.', img: '/hero2.webp' }
         ],
         pricingTitle: 'Types of Dives & Pricing',
         pricingSub: 'Professional PADI/SSI instructors and high safety standards make it perfect for swimmers and non-swimmers alike.',
@@ -50,9 +50,9 @@ const activitiesData = [
         whyImg: 'https://images.unsplash.com/photo-1621272036047-bf0ebfd413f6?auto=format&fit=crop&q=80&w=800',
         whyQuote: '"A walk to remember beneath the waves."',
         places: [
-            { name: 'North Bay Island', subtitle: 'The Pioneer Hub', desc: 'The most popular destination for Sea Walk in Port Blair, famous for its rich marine life near the coast.', img: '/hero2.png' },
-            { name: 'Havelock Island', subtitle: 'Elephant Beach', desc: 'A premium sea walking experience amidst the crystal clear waters of the famous Elephant Beach.', img: '/hero1.png' },
-            { name: 'Neil Island', subtitle: 'Quiet & Calm', desc: 'Experience the underwater walk in a more secluded environment with very calm currents.', img: '/hero3.png' }
+            { name: 'North Bay Island', subtitle: 'The Pioneer Hub', desc: 'The most popular destination for Sea Walk in Port Blair, famous for its rich marine life near the coast.', img: '/hero2.webp' },
+            { name: 'Havelock Island', subtitle: 'Elephant Beach', desc: 'A premium sea walking experience amidst the crystal clear waters of the famous Elephant Beach.', img: '/hero1.webp' },
+            { name: 'Neil Island', subtitle: 'Quiet & Calm', desc: 'Experience the underwater walk in a more secluded environment with very calm currents.', img: '/hero3.webp' }
         ],
         pricingTitle: 'Sea Walk Packages',
         pricingSub: 'Safe, guided, and purely magical. All equipment and underwater photography included.',
@@ -79,9 +79,9 @@ const activitiesData = [
         whyImg: 'https://images.unsplash.com/photo-1508004526072-3be43a5005f6?auto=format&fit=crop&q=80&w=800',
         whyQuote: '"A mesmerizing window to the underwater world."',
         places: [
-            { name: 'Elephant Beach', subtitle: 'Snorkeling Paradise', desc: 'Havelock’s primary hub for snorkeling. Shallow, clear waters teeming with colorful fish right off the beach.', img: '/hero1.png' },
-            { name: 'Jolly Buoy', subtitle: 'Protected Marine Area', desc: 'Part of the Mahatma Gandhi Marine National Park, offering the most vibrant and strictly protected corals.', img: '/hero2.png' },
-            { name: 'Bharatpur Beach', subtitle: 'Neil Island', desc: 'A gentle slope into the sea makes it highly accessible for families and elderly snorkelers.', img: '/hero3.png' }
+            { name: 'Elephant Beach', subtitle: 'Snorkeling Paradise', desc: 'Havelock’s primary hub for snorkeling. Shallow, clear waters teeming with colorful fish right off the beach.', img: '/hero1.webp' },
+            { name: 'Jolly Buoy', subtitle: 'Protected Marine Area', desc: 'Part of the Mahatma Gandhi Marine National Park, offering the most vibrant and strictly protected corals.', img: '/hero2.webp' },
+            { name: 'Bharatpur Beach', subtitle: 'Neil Island', desc: 'A gentle slope into the sea makes it highly accessible for families and elderly snorkelers.', img: '/hero3.webp' }
         ],
         pricingTitle: 'Snorkeling Adventures',
         pricingSub: 'Guided snorkeling tours ensuring you see the best parts of the reef safely.',
@@ -108,9 +108,9 @@ const activitiesData = [
         whyImg: 'https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?auto=format&fit=crop&q=80&w=800',
         whyQuote: '"Fast, fierce, and incredibly fun."',
         places: [
-            { name: 'Water Sports Complex', subtitle: 'Port Blair', desc: 'The most accessible spot to hop on a Jet Ski and rip around the harbor area.', img: '/hero2.png' },
-            { name: 'Corbyn\'s Cove', subtitle: 'Scenic Coastline', desc: 'Ride the waves alongside a beautiful crescent-shaped, coconut palm-fringed beach.', img: '/hero3.png' },
-            { name: 'Elephant Beach', subtitle: 'Havelock Action', desc: 'Combine your snorkeling trip with an adrenaline-pumping Jet Ski ride.', img: '/hero1.png' }
+            { name: 'Water Sports Complex', subtitle: 'Port Blair', desc: 'The most accessible spot to hop on a Jet Ski and rip around the harbor area.', img: '/hero2.webp' },
+            { name: 'Corbyn\'s Cove', subtitle: 'Scenic Coastline', desc: 'Ride the waves alongside a beautiful crescent-shaped, coconut palm-fringed beach.', img: '/hero3.webp' },
+            { name: 'Elephant Beach', subtitle: 'Havelock Action', desc: 'Combine your snorkeling trip with an adrenaline-pumping Jet Ski ride.', img: '/hero1.webp' }
         ],
         pricingTitle: 'Jet Ski Rides',
         pricingSub: 'Short bursts of absolute thrill. Safe, thoroughly maintained machines.',
@@ -135,9 +135,9 @@ const activitiesData = [
         whyImg: 'https://images.unsplash.com/photo-1520626337972-0056972e0d37?auto=format&fit=crop&q=80&w=800',
         whyQuote: '"The closest you can get to flying naturally."',
         places: [
-            { name: 'Corbyn\'s Cove', subtitle: 'Port Blair Aerials', desc: 'Launch from the beach or boat and see Port Blair coastline from a completely new angle.', img: '/hero2.png' },
-            { name: 'Elephant Beach', subtitle: 'Havelock Heights', desc: 'The absolute best place for parasailing, where you can literally see the reefs from the sky.', img: '/hero1.png' },
-            { name: 'North Bay', subtitle: 'Lighthouse Views', desc: 'Fly near the famous North Bay lighthouse, depicted on the 20-rupee note.', img: '/hero3.png' }
+            { name: 'Corbyn\'s Cove', subtitle: 'Port Blair Aerials', desc: 'Launch from the beach or boat and see Port Blair coastline from a completely new angle.', img: '/hero2.webp' },
+            { name: 'Elephant Beach', subtitle: 'Havelock Heights', desc: 'The absolute best place for parasailing, where you can literally see the reefs from the sky.', img: '/hero1.webp' },
+            { name: 'North Bay', subtitle: 'Lighthouse Views', desc: 'Fly near the famous North Bay lighthouse, depicted on the 20-rupee note.', img: '/hero3.webp' }
         ],
         pricingTitle: 'Parasailing Flights',
         pricingSub: 'Soar securely. Dry landings and water dips available on request.',
@@ -162,9 +162,9 @@ const activitiesData = [
         whyImg: 'https://images.unsplash.com/photo-1510006851064-e6056cd0e3a8?auto=format&fit=crop&q=80&w=800',
         whyQuote: '"A meditative journey through water and woods."',
         places: [
-            { name: 'Havelock Mangroves', subtitle: 'Night Kayaking', desc: 'Famous for bioluminescence tours where every paddle stroke lights up the water.', img: '/hero1.png' },
-            { name: 'Mayabunder', subtitle: 'Deep Forest Creeks', desc: 'Pristine, untouched mangrove forests offering long, undisturbed kayaking tracks.', img: '/hero2.png' },
-            { name: 'Baratang', subtitle: 'Limestone Passage', desc: 'Paddle through incredibly dense mangrove canopies en route to the famous limestone caves.', img: '/hero3.png' }
+            { name: 'Havelock Mangroves', subtitle: 'Night Kayaking', desc: 'Famous for bioluminescence tours where every paddle stroke lights up the water.', img: '/hero1.webp' },
+            { name: 'Mayabunder', subtitle: 'Deep Forest Creeks', desc: 'Pristine, untouched mangrove forests offering long, undisturbed kayaking tracks.', img: '/hero2.webp' },
+            { name: 'Baratang', subtitle: 'Limestone Passage', desc: 'Paddle through incredibly dense mangrove canopies en route to the famous limestone caves.', img: '/hero3.webp' }
         ],
         pricingTitle: 'Kayaking Tours',
         pricingSub: 'Guided group paddles. Perfect for fitness enthusiasts and nature lovers.',

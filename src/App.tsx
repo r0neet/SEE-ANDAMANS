@@ -173,12 +173,11 @@ const Hero = () => {
       <motion.div style={{ y, opacity }} className="absolute inset-0 z-0">
         <video
           ref={videoRef}
-          src="https://res.cloudinary.com/dsrquoqqm/video/upload/v1779108035/herovid_jdhmzx.mov"
+          src="https://res.cloudinary.com/dsrquoqqm/video/upload/c_scale,w_1280/f_auto,q_auto:eco/v1779108035/herovid_jdhmzx.mov"
           autoPlay
           loop
           muted
           playsInline
-          controls={false}
           preload="auto"
           poster="https://images.unsplash.com/photo-1589136777351-fdc9c9cb134f?auto=format&fit=crop&q=80&w=2000"
           className="w-full h-full object-cover opacity-60 pointer-events-none"
@@ -235,8 +234,10 @@ const ImageGallerySection = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.7 }}
-              src="/hero2.png"
+              src="/hero2.webp"
               alt="Scuba Diving"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
             />
             <p className="absolute bottom-4 left-4 z-20 text-white font-serif tracking-widest uppercase text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Scuba Diving</p>
@@ -250,8 +251,10 @@ const ImageGallerySection = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.7 }}
-              src="/hero1.png"
+              src="/hero1.webp"
               alt="Sunset Beach Andaman"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
             />
             <p className="absolute bottom-4 left-4 z-20 text-white font-serif tracking-widest uppercase text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Sunset Views</p>
@@ -266,8 +269,10 @@ const ImageGallerySection = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.7 }}
-              src="/hero3.png"
+              src="/hero3.webp"
               alt="Water Villas"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
             />
             <p className="absolute bottom-4 left-4 z-20 text-white font-serif tracking-widest uppercase text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Luxury Resorts</p>
@@ -382,7 +387,7 @@ const PackagesSection = () => (
               <div className="absolute top-4 left-4 z-10 flex items-center gap-2 bg-black/50 px-3 py-1 text-xs uppercase tracking-wider backdrop-blur-sm text-white">
                 <MapPin size={12} /> {pkg.theme}
               </div>
-              <img src={pkg.img} alt={pkg.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img src={pkg.img} alt={pkg.title} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             </div>
             <div className="p-8">
               <h3 className="text-3xl font-serif text-white mb-6">{pkg.title}</h3>
@@ -401,10 +406,10 @@ const CategorySliderSection = () => {
   const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
   const slides = [
-    { title: "PACKAGES", img: "/3.png", link: null },
-    { title: "ACTIVITIES", img: "/2.png", link: "/scuba-diving" },
-    { title: "CABS", img: "/1.png", link: "/cabs" },
-    { title: "FERRYS", img: "/4.png", link: "/ferries" }
+    { title: "PACKAGES", img: "/3.webp", link: null },
+    { title: "ACTIVITIES", img: "/2.webp", link: "/scuba-diving" },
+    { title: "CABS", img: "/1.webp", link: "/cabs" },
+    { title: "FERRYS", img: "/4.webp", link: "/ferries" }
   ];
 
   const handleNext = () => setActiveIndex((prev) => (prev + 1) % slides.length);
@@ -421,7 +426,7 @@ const CategorySliderSection = () => {
           transition={{ duration: 0.8 }}
           className="absolute inset-0"
         >
-          <img src={slides[activeIndex].img} alt={slides[activeIndex].title} className="w-full h-full object-cover opacity-80" />
+          <img src={slides[activeIndex].img} alt={slides[activeIndex].title} loading="lazy" decoding="async" className="w-full h-full object-cover opacity-80" />
           <div className="absolute inset-0 bg-black/30" />
         </motion.div>
       </AnimatePresence>
@@ -492,7 +497,7 @@ const FerryListSection = () => {
               transition={{ duration: 0.8, delay: idx * 0.1 }}
               className="relative aspect-[3/4] border border-white/10 group cursor-pointer overflow-hidden bg-[#0a1118]"
             >
-              <img src={ferry.img} alt={ferry.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img src={ferry.img} alt={ferry.name} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
               
               <div className="absolute top-4 left-4 z-10 flex items-center gap-2 bg-black/50 border border-white/5 px-3 py-1 text-xs uppercase tracking-wider backdrop-blur-sm text-white">
@@ -680,7 +685,7 @@ const ReviewsSection = () => {
       <div className="absolute inset-0 w-full h-full z-0">
         <video
           ref={videoRef}
-          src="https://res.cloudinary.com/dsrquoqqm/video/upload/v1779106139/dive_wxkqjn.mov"
+          src="https://res.cloudinary.com/dsrquoqqm/video/upload/c_scale,w_1280/f_auto,q_auto:eco/v1779106139/dive_wxkqjn.mov"
           preload="none"
           muted
           loop
@@ -731,7 +736,7 @@ const ReviewsSection = () => {
             >
               <div className="flex justify-between items-center mb-8 relative z-10">
                 <div className="flex items-center gap-4">
-                  <img src={review.img} alt={review.name} className="w-10 h-10 rounded-full object-cover grayscale opacity-90" />
+                  <img src={review.img} alt={review.name} loading="lazy" decoding="async" className="w-10 h-10 rounded-full object-cover grayscale opacity-90" />
                   <h4 className="text-gray-300 font-medium text-sm tracking-wide">{review.name}</h4>
                 </div>
                 <div className="flex text-white gap-1">
@@ -752,39 +757,43 @@ const ReviewsSection = () => {
   );
 };
 
-const ContactAgent = () => (
-  <section className="py-32 bg-[#04080c] border-t border-white/5 relative z-10 px-8 text-center flex flex-col items-center">
-    <div className="max-w-3xl mx-auto">
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.1, duration: 0.6 }}
-        className="text-5xl md:text-6xl font-serif text-white mb-6"
-      >
-        Contact our agent.
-      </motion.h2>
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-        className="text-gray-300 text-lg md:text-xl font-light mb-12 tracking-wide"
-      >
-        Book your ferry, book a trip or transfer here.
-      </motion.p>
-      <motion.button
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.3, duration: 0.6 }}
-        className="px-10 py-5 bg-[#0a1118] hover:bg-[#111827] border border-white/5 hover:border-white/20 text-gray-400 hover:text-white text-xs font-semibold uppercase tracking-[0.25em] transition-all duration-300 shadow-2xl"
-      >
-        Get Started Now
-      </motion.button>
-    </div>
-  </section>
-);
+const ContactAgent = () => {
+  const navigate = useNavigate();
+  return (
+    <section className="py-32 bg-[#04080c] border-t border-white/5 relative z-10 px-8 text-center flex flex-col items-center">
+      <div className="max-w-3xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1, duration: 0.6 }}
+          className="text-5xl md:text-6xl font-serif text-white mb-6"
+        >
+          Contact our agent.
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="text-gray-300 text-lg md:text-xl font-light mb-12 tracking-wide"
+        >
+          Book your ferry, book a trip or transfer here.
+        </motion.p>
+        <motion.button
+          onClick={() => window.scrollTo(0, 0) || navigate('/contact')}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="px-10 py-5 bg-[#0a1118] hover:bg-[#111827] border border-white/5 hover:border-white/20 text-gray-400 hover:text-white text-xs font-semibold uppercase tracking-[0.25em] transition-all duration-300 shadow-2xl"
+        >
+          Get Started Now
+        </motion.button>
+      </div>
+    </section>
+  );
+};
 
 function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
