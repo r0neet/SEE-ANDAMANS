@@ -781,7 +781,7 @@ const ContactAgent = () => {
           Book your ferry, book a trip or transfer here.
         </motion.p>
         <motion.button
-          onClick={() => window.scrollTo(0, 0) || navigate('/contact')}
+          onClick={() => { window.scrollTo(0, 0); navigate('/contact'); }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
