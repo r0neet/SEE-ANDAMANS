@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  html {
+    /* Playfair Display creates the luxurious Serif look from the video */
+    --font-serif: 'Playfair Display', serif;
+    /* Inter is clean and highly readable for menus/buttons */
+    --font-sans: 'Inter', sans-serif; 
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
