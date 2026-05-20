@@ -30,7 +30,7 @@ export default function Contact() {
             <section className="relative h-[45vh] flex flex-col justify-center items-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto/v1779139538/scoba_thq1p0.png"
+                        src="https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779139538/scoba_thq1p0.png"
                         alt="Contact Andaman Tourism"
                         className="w-full h-full object-cover opacity-30"
                     />

@@ -44,6 +44,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, setIsMenuO
 };
 
 const MenuOverlay = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (v: boolean) => void }) => {
+  const navigate = useNavigate();
   React.useEffect(() => {
     if (isOpen) document.body.style.overflow = 'hidden';
     else document.body.style.overflow = 'auto';
@@ -92,12 +93,12 @@ const MenuOverlay = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (v: bo
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white group-hover:text-gray-300 transition-colors">About us</h2>
               </motion.a>
 
-              <motion.a href="#" custom={3} variants={linkVariants} initial="closed" animate="open" exit="closed" className="group block w-fit" onClick={() => setIsOpen(false)}>
+              <motion.a href="#" custom={3} variants={linkVariants} initial="closed" animate="open" exit="closed" className="group block w-fit" onClick={(e) => { e.preventDefault(); setIsOpen(false); navigate('/contact'); }}>
                 <p className="text-sm font-sans tracking-widest text-gray-400 mb-2 uppercase">Ask anything you want</p>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white group-hover:text-gray-300 transition-colors">Contact us</h2>
               </motion.a>
 
-              <motion.a href="#" custom={4} variants={linkVariants} initial="closed" animate="open" exit="closed" className="group block w-fit" onClick={() => setIsOpen(false)}>
+              <motion.a href="#" custom={4} variants={linkVariants} initial="closed" animate="open" exit="closed" className="group block w-fit" onClick={(e) => { e.preventDefault(); setIsOpen(false); navigate('/contact'); }}>
                 <p className="text-sm font-sans tracking-widest text-gray-400 mb-2 uppercase">Reserve now</p>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white group-hover:text-gray-300 transition-colors">Quick Reservation</h2>
               </motion.a>
@@ -205,12 +206,24 @@ const Hero = () => {
 
 const ImageGallerySection = () => {
   const { scrollYProgress } = useScroll();
+  const [isMobile, setIsMobile] = useState(false);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Use scrollYProgress to determine when this section is in view.
   // We'll map the progress roughly when the section enters the viewport (around 0.2 to 0.4 depending on height)
   // to slide the images outward. Let's use a wide range to ensure it triggers smoothly.
   const leftX = useTransform(scrollYProgress, [0.1, 0.4], ['50%', '0%']);
   const rightX = useTransform(scrollYProgress, [0.1, 0.4], ['-50%', '0%']);
+
+  const marqueeDuration = isMobile ? 18 : 35;
 
   return (
     <section className="bg-[#060c12] pt-40 pb-24 px-4 flex flex-col items-center overflow-hidden relative">
@@ -234,7 +247,7 @@ const ImageGallerySection = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.7 }}
-              src="https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto/v1779139508/hero2_sdquhn.png"
+              src="https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1778443299/img4_fpovju.jpg"
               alt="Scuba Diving"
               loading="lazy"
               decoding="async"
@@ -251,7 +264,7 @@ const ImageGallerySection = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.7 }}
-              src="https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto/v1779139509/hero1_kvhccf.png"
+              src="https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779139509/hero1_kvhccf.png"
               alt="Sunset Beach Andaman"
               loading="lazy"
               decoding="async"
@@ -269,7 +282,7 @@ const ImageGallerySection = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.7 }}
-              src="https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto/v1779139515/hero3_ihu2dr.png"
+              src="https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1778443299/img5_cpeq2e.png"
               alt="Water Villas"
               loading="lazy"
               decoding="async"
@@ -287,7 +300,7 @@ const ImageGallerySection = () => {
         <motion.div
           initial={{ x: 0 }}
           animate={{ x: "-50%" }}
-          transition={{ ease: "linear", duration: 35, repeat: Infinity }}
+          transition={{ ease: "linear", duration: marqueeDuration, repeat: Infinity }}
           className="flex whitespace-nowrap"
           style={{ willChange: "transform" }}
         >
@@ -303,7 +316,7 @@ const ImageGallerySection = () => {
         <motion.div
           initial={{ x: "-50%" }}
           animate={{ x: 0 }}
-          transition={{ ease: "linear", duration: 35, repeat: Infinity }}
+          transition={{ ease: "linear", duration: marqueeDuration, repeat: Infinity }}
           className="flex whitespace-nowrap"
           style={{ willChange: "transform" }}
         >
@@ -406,10 +419,10 @@ const CategorySliderSection = () => {
   const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
   const slides = [
-    { title: "PACKAGES", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto/v1779138973/3_tej88o.png", link: null },
-    { title: "ACTIVITIES", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto/v1779138965/2_lpwrl0.png", link: "/scuba-diving" },
-    { title: "CABS", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto/v1779138960/1_gb5af9.png", link: "/cabs" },
-    { title: "FERRYS", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto/v1779138982/4_tsvwux.png", link: "/ferries" }
+    { title: "PACKAGES", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779138973/3_tej88o.png", link: null },
+    { title: "ACTIVITIES", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779138965/2_lpwrl0.png", link: "/scuba-diving" },
+    { title: "CABS", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779138960/1_gb5af9.png", link: "/cabs" },
+    { title: "FERRYS", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779138982/4_tsvwux.png", link: "/ferries" }
   ];
 
   const handleNext = () => setActiveIndex((prev) => (prev + 1) % slides.length);
@@ -484,10 +497,10 @@ const FerryListSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { name: "Nautika & Lite", price: "From ₹800 / person", img: "https://images.unsplash.com/photo-1599839619722-39751411ea63?w=800&auto=format&fit=crop&q=80" },
-            { name: "Makruzz", price: "From ₹3,500 / person", img: "https://images.unsplash.com/photo-1544521404-51ac1c4b786b?w=800&auto=format&fit=crop&q=80" },
-            { name: "ITT Majestic", price: "From ₹800 / person", img: "https://images.unsplash.com/photo-1628151025547-5d20f66671c6?w=800&auto=format&fit=crop&q=80" },
-            { name: "Green Ocean 1", price: "From ₹1,200 / person", img: "https://images.unsplash.com/photo-1621532452285-06beefa9cf0c?w=800&auto=format&fit=crop&q=80" }
+            { name: "Nautika & Lite", price: "From ₹800 / person", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779316824/Nautika_light_qb2ruh.jpg" },
+            { name: "Makruzz", price: "From ₹3,500 / person", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779316823/makruzz_ggwxit.jpg" },
+            { name: "ITT Majestic", price: "From ₹800 / person", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779316823/Majestic_gefufk.jpg" },
+            { name: "Green Ocean 1", price: "From ₹1,200 / person", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779316822/GO1_h33ktx.jpg" }
           ].map((ferry, idx) => (
             <motion.div
               key={idx}

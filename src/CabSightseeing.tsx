@@ -9,28 +9,28 @@ const tours = [
         title: 'PRIVATE CAB TOUR TO BARATANG - LIMESTONE CAVES AND MUD VOLCANO',
         desc: 'A personal trip to Baratang Island from Port Blair. Witness the fascinating limestone caves and the rare mud volcano.',
         price: '3800',
-        img: 'https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto/v1779139508/hero2_sdquhn.png'
+        img: 'https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779139508/hero2_sdquhn.png'
     },
     {
         id: 2,
         title: 'CHIDIATAPU SUNSET TOUR',
         desc: 'Experience the most beautiful sunset in the Andaman islands. A relaxed evening by the breathtaking biological park and beach.',
         price: '1500',
-        img: 'https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto/v1779139509/hero1_kvhccf.png'
+        img: 'https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779139509/hero1_kvhccf.png'
     },
     {
         id: 3,
         title: 'ROSS ISLAND AND NORTH BAY ISLAND (CORAL ISLAND)',
         desc: 'Explore the historical ruins of the British capital and the vibrant coral reefs of North Bay in a single day.',
         price: '2500',
-        img: 'https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto/v1779139515/hero3_ihu2dr.png'
+        img: 'https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779139515/hero3_ihu2dr.png'
     },
     {
         id: 4,
         title: 'CELLULAR JAIL',
         desc: 'Explore The prison that was used by the colonial government of India for the purpose of exiling insurgents and political prisoners.',
         price: '1500',
-        img: 'https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto/v1779139508/hero2_sdquhn.png'
+        img: 'https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779139508/hero2_sdquhn.png'
     }
 ];
 
