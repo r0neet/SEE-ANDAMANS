@@ -83,22 +83,46 @@ const MenuOverlay = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (v: bo
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white group-hover:text-gray-300 transition-colors">Home</h2>
               </motion.a>
 
-              <motion.a href="#" custom={1} variants={linkVariants} initial="closed" animate="open" exit="closed" className="group block w-fit" onClick={() => setIsOpen(false)}>
+              <motion.a href="#packages" custom={1} variants={linkVariants} initial="closed" animate="open" exit="closed" className="group block w-fit" onClick={(e) => {
+                e.preventDefault();
+                setIsOpen(false);
+                if (window.location.pathname !== '/') {
+                  navigate('/');
+                  setTimeout(() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' }), 300);
+                } else {
+                  document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}>
                 <p className="text-sm font-sans tracking-widest text-gray-400 mb-2 uppercase">Travel wherever you like</p>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white group-hover:text-gray-300 transition-colors">Packages</h2>
               </motion.a>
 
-              <motion.a href="#" custom={2} variants={linkVariants} initial="closed" animate="open" exit="closed" className="group block w-fit" onClick={() => setIsOpen(false)}>
+              <motion.a href="#" custom={2} variants={linkVariants} initial="closed" animate="open" exit="closed" className="group block w-fit" onClick={(e) => { e.preventDefault(); setIsOpen(false); navigate('/ferries'); }}>
+                <p className="text-sm font-sans tracking-widest text-gray-400 mb-2 uppercase">Fastest confirmations</p>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white group-hover:text-gray-300 transition-colors">Ferries</h2>
+              </motion.a>
+
+              <motion.a href="#" custom={3} variants={linkVariants} initial="closed" animate="open" exit="closed" className="group block w-fit" onClick={(e) => { e.preventDefault(); setIsOpen(false); navigate('/cabs'); }}>
+                <p className="text-sm font-sans tracking-widest text-gray-400 mb-2 uppercase">Island transfers</p>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white group-hover:text-gray-300 transition-colors">Cabs</h2>
+              </motion.a>
+
+              <motion.a href="#" custom={4} variants={linkVariants} initial="closed" animate="open" exit="closed" className="group block w-fit" onClick={(e) => { e.preventDefault(); setIsOpen(false); navigate('/scuba-diving'); }}>
+                <p className="text-sm font-sans tracking-widest text-gray-400 mb-2 uppercase">Scuba & water sports</p>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white group-hover:text-gray-300 transition-colors">Activities</h2>
+              </motion.a>
+
+              <motion.a href="#" custom={5} variants={linkVariants} initial="closed" animate="open" exit="closed" className="group block w-fit" onClick={() => setIsOpen(false)}>
                 <p className="text-sm font-sans tracking-widest text-gray-400 mb-2 uppercase">Meet the team</p>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white group-hover:text-gray-300 transition-colors">About us</h2>
               </motion.a>
 
-              <motion.a href="#" custom={3} variants={linkVariants} initial="closed" animate="open" exit="closed" className="group block w-fit" onClick={(e) => { e.preventDefault(); setIsOpen(false); navigate('/contact'); }}>
+              <motion.a href="#" custom={6} variants={linkVariants} initial="closed" animate="open" exit="closed" className="group block w-fit" onClick={(e) => { e.preventDefault(); setIsOpen(false); navigate('/contact'); }}>
                 <p className="text-sm font-sans tracking-widest text-gray-400 mb-2 uppercase">Ask anything you want</p>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white group-hover:text-gray-300 transition-colors">Contact us</h2>
               </motion.a>
 
-              <motion.a href="#" custom={4} variants={linkVariants} initial="closed" animate="open" exit="closed" className="group block w-fit" onClick={(e) => { e.preventDefault(); setIsOpen(false); navigate('/contact'); }}>
+              <motion.a href="#" custom={7} variants={linkVariants} initial="closed" animate="open" exit="closed" className="group block w-fit" onClick={(e) => { e.preventDefault(); setIsOpen(false); navigate('/contact'); }}>
                 <p className="text-sm font-sans tracking-widest text-gray-400 mb-2 uppercase">Reserve now</p>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white group-hover:text-gray-300 transition-colors">Quick Reservation</h2>
               </motion.a>
@@ -174,7 +198,7 @@ const Hero = () => {
       <motion.div style={{ y, opacity }} className="absolute inset-0 z-0">
         <video
           ref={videoRef}
-          src="https://res.cloudinary.com/dsrquoqqm/video/upload/c_scale,w_1280/f_auto,q_auto:eco/v1779108035/herovid_jdhmzx.mov"
+          src="https://res.cloudinary.com/dsrquoqqm/video/upload/c_scale,w_1280,q_auto:eco,vc_h264,ac_none/v1779108035/herovid_jdhmzx.mp4"
           autoPlay
           loop
           muted
@@ -371,7 +395,7 @@ const ServicesGrid = () => {
 };
 
 const PackagesSection = () => (
-  <section className="bg-[#060c12] py-24 px-4 md:px-8">
+  <section id="packages" className="bg-[#060c12] py-24 px-4 md:px-8">
     <div className="max-w-7xl mx-auto">
       <div className="flex justify-between items-end mb-16">
         <div>
@@ -698,7 +722,7 @@ const ReviewsSection = () => {
       <div className="absolute inset-0 w-full h-full z-0">
         <video
           ref={videoRef}
-          src="https://res.cloudinary.com/dsrquoqqm/video/upload/c_scale,w_1280/f_auto,q_auto:eco/v1779106139/dive_wxkqjn.mov"
+          src="https://res.cloudinary.com/dsrquoqqm/video/upload/c_scale,w_1280,q_auto:eco,vc_h264,ac_none/v1779106139/dive_wxkqjn.mp4"
           preload="none"
           muted
           loop
