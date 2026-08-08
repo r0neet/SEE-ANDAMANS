@@ -250,11 +250,11 @@ const ImageGallerySection = () => {
   const marqueeDuration = isMobile ? 18 : 35;
 
   return (
-    <section className="bg-[#060c12] pt-40 pb-24 px-4 flex flex-col items-center overflow-hidden relative">
+    <section className="bg-[#060c12] pt-16 pb-12 md:pt-40 md:pb-24 px-4 flex flex-col items-center overflow-hidden relative">
       <div className="max-w-[1400px] w-full">
         <motion.div
           initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
         >
           <p className="text-sm uppercase tracking-[0.3em] mb-4 text-gray-400">- Discover the Paradise -</p>
           <h2 className="text-5xl md:text-6xl font-serif text-white">Island Experts.</h2>
@@ -319,7 +319,7 @@ const ImageGallerySection = () => {
       </div>
 
       {/* Sliding Marquee Text */}
-      <div className="w-full mt-32 mb-8 select-none pointer-events-none opacity-40 flex flex-col gap-4 overflow-hidden">
+      <div className="w-full mt-12 mb-4 md:mt-32 md:mb-8 select-none pointer-events-none opacity-40 flex flex-col gap-4 overflow-hidden">
         {/* Row 1 - Sliding Left */}
         <motion.div
           initial={{ x: 0 }}
@@ -361,9 +361,9 @@ const ServicesGrid = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="bg-[#060c12] pt-16 px-4 md:px-8 border-t border-white/5 relative z-20 mt-[-5px]">
-      <div className="max-w-6xl mx-auto pb-16">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 text-center place-items-center">
+    <section className="bg-[#060c12] pt-8 md:pt-16 px-4 md:px-8 border-t border-white/5 relative z-20 mt-[-5px]">
+      <div className="max-w-6xl mx-auto pb-8 md:pb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-12 text-center place-items-center">
           {[
             { icon: Ship, title: "Ferries", desc: "Fastest Confirmations", link: '/ferries' },
             { icon: Anchor, title: "Cabs", desc: "Island Transfers", link: '/cabs' },
@@ -394,24 +394,56 @@ const ServicesGrid = () => {
   );
 };
 
+const packagesData = [
+  { title: "Honeymoon Exclusive", theme: "Luxury", img: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=800" },
+  { title: "Adventure & Diving", theme: "Adventure", img: "https://images.unsplash.com/photo-1544550581-5f7ceaf7f992?w=800" }
+];
+
 const PackagesSection = () => (
-  <section id="packages" className="bg-[#060c12] py-24 px-4 md:px-8">
+  <section id="packages" className="bg-[#060c12] py-12 md:py-24 px-4 md:px-8">
     <div className="max-w-7xl mx-auto">
-      <div className="flex justify-between items-end mb-16">
+      <div className="flex justify-between items-end mb-8 md:mb-16">
         <div>
           <p className="text-sm uppercase tracking-[0.3em] mb-4 text-gray-400">- Travel Themes -</p>
-          <h2 className="text-5xl font-serif text-white">Popular Packages</h2>
+          <h2 className="text-3xl md:text-5xl font-serif text-white">Popular Packages</h2>
         </div>
         <button className="px-8 py-3 border border-white/20 text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 hidden md:block">
           Show All
         </button>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
-        {[
-          { title: "Honeymoon Exclusive", theme: "Luxury", img: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=800" },
-          { title: "Adventure & Diving", theme: "Adventure", img: "https://images.unsplash.com/photo-1544550581-5f7ceaf7f992?w=800" }
-        ].map((pkg, idx) => (
+      {/* Mobile: auto-scrolling horizontal row */}
+      <div className="md:hidden overflow-hidden">
+        <motion.div
+          className="flex gap-4 w-max"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ ease: "linear", duration: 18, repeat: Infinity }}
+        >
+          {[...packagesData, ...packagesData].map((pkg, idx) => (
+            <div
+              key={idx}
+              className="bg-[#0a1118] border border-white/10 overflow-hidden w-56 shrink-0"
+            >
+              <div className="relative h-36 overflow-hidden">
+                <div className="absolute top-2 left-2 z-10 flex items-center gap-1.5 bg-black/50 px-2 py-1 text-[10px] uppercase tracking-wider backdrop-blur-sm text-white">
+                  <MapPin size={10} /> {pkg.theme}
+                </div>
+                <img src={pkg.img} alt={pkg.title} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+              </div>
+              <div className="p-4">
+                <h3 className="text-base font-serif text-white mb-2">{pkg.title}</h3>
+                <button className="flex items-center gap-1.5 text-[10px] tracking-widest uppercase text-white">
+                  View Itinerary <ChevronRight size={12} />
+                </button>
+              </div>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Desktop grid */}
+      <div className="hidden md:grid md:grid-cols-2 gap-8">
+        {packagesData.map((pkg, idx) => (
           <motion.div
             key={idx}
             initial={{ opacity: 0, scale: 0.95 }}
@@ -505,27 +537,58 @@ const CategorySliderSection = () => {
   );
 };
 
+const ferryData = [
+  { name: "Nautika & Lite", price: "From ₹800 / person", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779316824/Nautika_light_qb2ruh.jpg" },
+  { name: "Makruzz", price: "From ₹3,500 / person", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779316823/makruzz_ggwxit.jpg" },
+  { name: "ITT Majestic", price: "From ₹800 / person", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779316823/Majestic_gefufk.jpg" },
+  { name: "Green Ocean 1", price: "From ₹1,200 / person", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779316822/GO1_h33ktx.jpg" }
+];
+
 const FerryListSection = () => {
   return (
-    <section className="bg-[#060c12] py-24 px-4 md:px-8 border-t border-white/5">
+    <section className="bg-[#060c12] py-12 md:py-24 px-4 md:px-8 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-end mb-16">
+        <div className="flex justify-between items-end mb-8 md:mb-16">
           <div>
             <p className="text-sm uppercase tracking-[0.3em] mb-4 text-gray-400">- High Speed Transfers -</p>
-            <h2 className="text-5xl font-serif text-white">Popular Ferries</h2>
+            <h2 className="text-3xl md:text-5xl font-serif text-white">Popular Ferries</h2>
           </div>
           <button className="px-8 py-3 border border-white/20 text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 hidden md:block">
             Book Ferry
           </button>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            { name: "Nautika & Lite", price: "From ₹800 / person", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779316824/Nautika_light_qb2ruh.jpg" },
-            { name: "Makruzz", price: "From ₹3,500 / person", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779316823/makruzz_ggwxit.jpg" },
-            { name: "ITT Majestic", price: "From ₹800 / person", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779316823/Majestic_gefufk.jpg" },
-            { name: "Green Ocean 1", price: "From ₹1,200 / person", img: "https://res.cloudinary.com/dsrquoqqm/image/upload/f_auto,q_auto,w_1200/v1779316822/GO1_h33ktx.jpg" }
-          ].map((ferry, idx) => (
+        {/* Mobile: auto-scrolling horizontal row, smaller cards */}
+        <div className="md:hidden overflow-hidden">
+          <motion.div
+            className="flex gap-4 w-max"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ ease: "linear", duration: 22, repeat: Infinity }}
+          >
+            {[...ferryData, ...ferryData].map((ferry, idx) => (
+              <div
+                key={idx}
+                className="relative aspect-[3/4] w-36 shrink-0 border border-white/10 overflow-hidden bg-[#0a1118]"
+              >
+                <img src={ferry.img} alt={ferry.name} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
+
+                <div className="absolute top-2 left-2 z-10 flex items-center gap-1 bg-black/50 border border-white/5 px-1.5 py-0.5 text-[9px] uppercase tracking-wider backdrop-blur-sm text-white">
+                  <Anchor size={9} /> Ferry
+                </div>
+
+                <div className="absolute bottom-0 left-0 p-3 z-10 w-full">
+                  <h3 className="text-sm font-serif text-white mb-1 leading-tight">{ferry.name}</h3>
+                  <p className="text-[9px] uppercase tracking-widest text-[#38bdf8] drop-shadow-md leading-tight">{ferry.price}</p>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Desktop grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {ferryData.map((ferry, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, scale: 0.95 }}
@@ -536,7 +599,7 @@ const FerryListSection = () => {
             >
               <img src={ferry.img} alt={ferry.name} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
-              
+
               <div className="absolute top-4 left-4 z-10 flex items-center gap-2 bg-black/50 border border-white/5 px-3 py-1 text-xs uppercase tracking-wider backdrop-blur-sm text-white">
                 <Anchor size={12} /> Ferry
               </div>
@@ -599,9 +662,9 @@ const OceanWaves = () => {
 };
 
 const Footer = () => (
-  <footer className="bg-[#04080c] pt-24 pb-12 px-8 border-t border-white/10 relative overflow-hidden">
+  <footer className="bg-[#04080c] pt-12 pb-8 md:pt-24 md:pb-12 px-8 border-t border-white/10 relative overflow-hidden">
     <OceanWaves />
-    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 text-sm relative z-10">
+    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-16 text-sm relative z-10">
       <div className="col-span-1 md:col-span-2">
         <div className="text-2xl font-serif tracking-widest text-white mb-6">SEE ANDAMAN&reg;</div>
         <p className="text-gray-400 leading-relaxed pr-12 max-w-md">
@@ -642,10 +705,10 @@ const Footer = () => (
 );
 
 const WhyChooseUs = () => (
-  <section className="py-24 bg-[#04080c] border-y border-white/5 relative z-10 px-8">
+  <section className="py-12 md:py-24 bg-[#04080c] border-y border-white/5 relative z-10 px-8">
     <div className="max-w-7xl mx-auto">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-serif text-white mb-6 tracking-wide">Why Choose Beyond Oceans</h2>
+      <div className="text-center mb-8 md:mb-16">
+        <h2 className="text-3xl md:text-5xl font-serif text-white mb-6 tracking-wide">Why Choose Beyond Oceans</h2>
         <p className="text-gray-400 max-w-xl mx-auto leading-relaxed text-sm">
           Beyond Oceans encapsulates the essence of exploration and adventure in the Andaman and Nicobar Islands.
         </p>
@@ -718,7 +781,7 @@ const ReviewsSection = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-32 bg-[#060c12] relative z-10 px-8 overflow-hidden">
+    <section ref={containerRef} className="py-16 md:py-32 bg-[#060c12] relative z-10 px-8 overflow-hidden">
       <div className="absolute inset-0 w-full h-full z-0">
         <video
           ref={videoRef}
@@ -733,7 +796,7 @@ const ReviewsSection = () => {
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
-        <div className="mb-24 text-center">
+        <div className="mb-12 md:mb-24 text-center">
           <h2 className="text-4xl md:text-5xl font-serif text-white mb-4">What Travelers Say About Us</h2>
           <p className="text-gray-400 leading-relaxed">
             See what our customers have to say about their experiences with us
@@ -797,7 +860,7 @@ const ReviewsSection = () => {
 const ContactAgent = () => {
   const navigate = useNavigate();
   return (
-    <section className="py-32 bg-[#04080c] border-t border-white/5 relative z-10 px-8 text-center flex flex-col items-center">
+    <section className="py-16 md:py-32 bg-[#04080c] border-t border-white/5 relative z-10 px-8 text-center flex flex-col items-center">
       <div className="max-w-3xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
